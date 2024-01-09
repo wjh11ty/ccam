@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>结束界面</title>
+		<style type="text/css">
+			.menu{
+				width: 1280px;
+				height: 50px;
+				text-align: center;
+				background-color:blue;
+				margin: 0px auto;
+				color: white;
+				font-size: 18px;
+				line-height: 50px;
+			}
+			#content{
+				
+				width: 1280px;
+				height: 550px;
+				margin: 0px auto;
+			}
+			.foot{
+				width: 1280px;
+				height: 180px;
+				background-color: gray;
+				margin: 0px auto;
+				display: flex;
+			}
+			.footcode{
+				margin-top: 10px;
+				text-align: left;
+				
+			}
+			.footpic{
+				margin-left: 100px;
+			}
+			#pic{
+				transition: all 0.5s ease;
+			}
+			#pic:hover {
+                transform: scale(1.1);
+            } 
+			#num1,#num2,#num3,#num4,#num5{
+      			background-color:#DAD9D9;
+      			width:30px;
+      			height:30px;
+      			display:flex;
+      			justify-content:center;
+      			align-items:center;
+      			border-radius:30px;
+      			cursor:pointer;
+      			transition:all 0.5s ease;
+      		}
+			
+
+		</style>
+		<script type="text/javascript">
+     	 var a = 0;
+     	 function change() {
+        	a++;
+        	var pic = document.getElementById('pic');
+        	if(a > 2){
+         	 a = 0;
+       	 }
+        	pic.src = "img/tp"+a+".jpg";
+      	}
+       var step = 1;//步骤
+      
+      //页面加载事件
+      window.onload = function(){
+        //给5个数字添加鼠标点击事件
+        for(var i=1;i<=5;i++){
+          document.getElementById("num"+i).onclick = function(){
+            step = this.innerHTML;
+            setStyle();
+          }
+        }
+      }
+      
+      //设置显示效果
+      function setStyle(){
+        for(var i=1;i<=5;i++){
+          if(i <= step){
+            document.getElementById("num"+i).style.backgroundColor = "#64BD2E";
+            document.getElementById("num"+i).style.color = "white";
+          }
+          else{
+            document.getElementById("num"+i).style.backgroundColor = "#DAD9D9";
+            document.getElementById("num"+i).style.color = "black";
+          }
+        }
+      }
+     function xg() {
+      document.getElementById('pic').style.transform = 'scale(1.1)';
+    }
+
+    // 鼠标移开时执行的函数
+     function hy() {
+      document.getElementById('pic').style.transform = 'scale(1)';
+    }
+    
+	
+		</script>
+	</head>
+	<body>
+		<div class="menu"> 首页      |   主界面 </div>
+		<div id="content" > <img  src="img/tp0.jpg" id="pic" onmouseover ="xg()" onmouseout="hy()"></div>
+		<div class="foot">
+			<div class="footcode"><img src="img/素材(1).png"></div>
+			<p>COPYRIGHT © 2023 中国动漫博物馆<br><br><br><br>扫码预约参观</p>
+			<div class="footpic"><img src="img/合成.png"></div>
+			<div class="numberList">
+				<div id="num1" style="background-color: rgb(100, 189, 46); color: white;">1</div>
+				<div id="num2" style="background-color: rgb(100, 189, 46); color: white;">2</div>
+				<div id="num3" style="background-color: rgb(218, 217, 217); color: black;">3</div>
+				<div id="num4" style="background-color: rgb(218, 217, 217); color: black;">4</div>
+				<div id="num5" style="background-color: rgb(218, 217, 217); color: black;">5</div>
+			</div>
+			<input type="button" value="更换图片" style="width:200px;height:50px; margin-left:50px;margin-top: 40px;" onclick="change()" />
+			<input type="button" value="退出" style="width:200px;height:50px; margin-left:100px;margin-top: 40px;background-color:gainsboro ;" onclick="window.close()"/>
+		</div>
+		
+	</body>
+</html>
